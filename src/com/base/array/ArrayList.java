@@ -10,7 +10,7 @@ public class ArrayList {
     //所有的元素数组
     private int[] elements;
 
-    private static final int DEFAULT_CAPACITY = 10;
+    private static final int DEFAULT_CAPACITY = 5;
 
     private static final int ELEMENT_NO_FOUND = -1;
 
@@ -80,7 +80,9 @@ public class ArrayList {
      * @param index
      * @param element
      */
-    public void add(int index, int element) {rangeCheckForAdd(index);
+    public void add(int index, int element) {
+        rangeCheckForAdd(index);
+        ensureCapacity(size + 1);
         for (int i = size - 1; i >= index; i--) {
             elements[i + 1] = elements[i];
         }
@@ -92,7 +94,7 @@ public class ArrayList {
      * 添加元素到数组最后
      */
     public void add(int element) {
-        add(size,element);
+        add(size, element);
         // elements[size++]=element;
     }
 
@@ -157,7 +159,18 @@ public class ArrayList {
      * 扩容操作
      */
     private void ensureCapacity(int capacity) {
-
+        int oldCapacity = elements.length;
+        if (oldCapacity >= capacity) {
+            return;
+        }
+        //新容量是旧容量的1.5倍(位运算)
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        int[] newElements = new int[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newElements[i] = elements[i];
+        }
+        elements = newElements;
+        System.out.println(oldCapacity + "旧数组扩容为" + newCapacity);
     }
 
     /****************封装好的功能函数**************************/
@@ -165,12 +178,14 @@ public class ArrayList {
     private void outOfBounds(int index) {
         throw new IndexOutOfBoundsException("Index:" + index + ", Size:" + size);
     }
+
     // 检查下标越界(不可访问或删除size位置)
-    private void rangeCheck(int index){
-        if(index < 0 || index >= size){
+    private void rangeCheck(int index) {
+        if (index < 0 || index >= size) {
             outOfBounds(index);
         }
     }
+
     // 检查add()的下标越界(可以在size位置添加元素)
     private void rangeCheckForAdd(int index) {
         if (index < 0 || index > size) {

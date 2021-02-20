@@ -16,10 +16,13 @@ public class arrayMain {
         arrayList.add(102);
         arrayList.add(103);
         arrayList.add(104);
-        System.out.println(arrayList);
+        arrayList.add(105);
+        arrayList.add(106);
+      /*  System.out.println(arrayList);
         arrayList.remove(1);
         System.out.println(arrayList);
         arrayList.add(arrayList.size()-1, 1011);
-        System.out.println(arrayList);
+        System.out.println(arrayList);*/
+       /* Assert.test(arrayList.get(3) == 1011);*/
     }
 }
