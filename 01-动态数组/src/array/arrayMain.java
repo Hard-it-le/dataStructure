@@ -1,7 +1,21 @@
 package array;
 
 
+/**
+ * 动态数组
+ * 优点:
+ * 1.可以按照索引查询元素,速度很快
+ * 2.能够存储大量数据
+ * 3.按照索引遍历数组很方便
+ * 4.数组定义简单,方便访问
+ * 5.可以随机访问其中的元素
+ * 缺点:1.可能会造成空间的大量浪费
+ * 2.无法做的申请多少个内存就用多少内存
+ * 3.根据内容查找元素很慢
+ * 4.
+ */
 public class arrayMain {
+
     public static void main(String[] args) {
         ArrayList<Person> arrayList = new ArrayList<>();
         arrayList.add(new Person(10,"张三"));

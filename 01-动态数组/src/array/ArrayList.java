@@ -107,6 +107,10 @@ public class ArrayList<E> {
         elements[--size] = null; // 删除元素后, 将最后一位设置为null
         return old;
     }
+
+    public void remove(E element){
+        remove(indexOf(element));
+    }
     /**
      * 查看元素的索引
      * @param element
