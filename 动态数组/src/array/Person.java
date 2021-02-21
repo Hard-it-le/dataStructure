@@ -1,4 +1,4 @@
-package com.base.array;
+package array;
 
 public class Person {
     private int age;

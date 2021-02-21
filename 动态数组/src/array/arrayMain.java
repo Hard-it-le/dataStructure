@@ -1,16 +1,21 @@
-package com.base.array;
+package array;
 
 
 public class arrayMain {
     public static void main(String[] args) {
         ArrayList<Person> arrayList = new ArrayList<>();
         arrayList.add(new Person(10,"张三"));
+        arrayList.add(null);
         arrayList.add(new Person(11,"李四"));
         arrayList.add(new Person(12,"王五"));
         arrayList.add(new Person(13,"赵六"));
         arrayList.add(new Person(14,"张一"));
         arrayList.add(new Person(15,"张二"));
         System.out.println(arrayList);
+        arrayList.indexOf(null);
+        System.out.println(arrayList);
+        Assert.test(arrayList.size()==3);
+        Assert.test(arrayList.size()==7);
        /* int size = arrayList.size();
         System.out.println("数组的元素:" + size);*/
       /*  int i = arrayList.get(1);

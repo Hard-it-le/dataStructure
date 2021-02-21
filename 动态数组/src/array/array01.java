@@ -1,4 +1,4 @@
-package com.base.array;
+package array;
 
 public class array01 {
     public static void main(String[] args) throws IllegalAccessException {

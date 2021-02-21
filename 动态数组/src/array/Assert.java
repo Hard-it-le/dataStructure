@@ -1,4 +1,4 @@
-package com.base.array;
+package array;
 
 public class Assert {
     public static void  test(boolean value){
