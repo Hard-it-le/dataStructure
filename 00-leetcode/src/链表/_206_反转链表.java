@@ -36,6 +36,9 @@ public class _206_反转链表 {
      * @return
      */
     public ListNode reverseList(ListNode head) {
+        /**
+         * 如果头节点下一个为空或者hdea为空,则返回空及hdea
+         */
         if (head == null || head.next == null) {
             return head;
         }
@@ -56,7 +59,7 @@ public class _206_反转链表 {
             return head;
         }
         ListNode newHead = null;
-        while (head != null){
+        while (head != null) {
             ListNode tmp = head.next;
             head.next = newHead;
             newHead = head;
