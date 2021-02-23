@@ -17,6 +17,9 @@ package array;
 public class arrayMain {
 
     public static void main(String[] args) {
+        //java自己的动态数组
+        java.util.ArrayList list = new java.util.ArrayList();
+        //自己定义的动态数组
         ArrayList<Person> arrayList = new ArrayList<>();
         arrayList.add(new Person(10,"张三"));
         arrayList.add(null);
