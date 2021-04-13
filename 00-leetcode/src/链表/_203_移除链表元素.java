@@ -23,24 +23,17 @@ package 链表;
  * }
  */
 public class _203_移除链表元素 {
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     public ListNode removeElements(ListNode head, int val) {
-        return  null;
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode tmp = head.next;
+        tmp = removeElements(head.next, val);
+        if (head.val == val) {
+            return head.next;
+        } else {
+            return head;
+        }
     }
 }

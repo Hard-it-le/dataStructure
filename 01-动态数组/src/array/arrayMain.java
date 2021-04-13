@@ -36,7 +36,7 @@ public class arrayMain {
        /* int size = arrayList.size();
         System.out.println("数组的元素:" + size);*/
       /*  int i = arrayList.get(1);
-        System.out.println("获取1位置的元素:"+i);
+        System.out.println("获取1位置的元素:"+i);H
         int set = arrayList.set(1, 22);
         System.out.println("替换原来位置的元素:
         "+set);*/
