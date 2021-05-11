@@ -8,6 +8,7 @@ package linkedList;
  */
 public class LinkedListMain {
     public static void main(String[] args) {
+        java.util.LinkedList<Object> linkedList1 = new java.util.LinkedList<>();
         List<Integer> linkedList = new LinkedList<>();
         linkedList.add(20);
         linkedList.add(0,10);
@@ -17,6 +18,7 @@ public class LinkedListMain {
         System.out.println(linkedList);
         linkedList.indexOf(1);
         System.out.println(linkedList);
+
     }
 
 

@@ -45,7 +45,7 @@ package 链表;
  * ListNode(int x) { val = x; }
  * }
  */
-public class _867_链表的中间结点 {
+public class _876_链表的中间结点 {
     public class ListNode {
         int val;
         ListNode next;
@@ -56,6 +56,16 @@ public class _867_链表的中间结点 {
     }
 
     public ListNode middleNode(ListNode head) {
-        return  null;
+
+        /**
+         * 快慢指针
+         */
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
