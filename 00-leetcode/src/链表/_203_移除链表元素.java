@@ -28,11 +28,15 @@ public class _203_移除链表元素 {
         /**
          * 递归
          */
+        //1.判断head是否为null或者head.next是否为null
         if (head == null || head.next == null) {
             return head;
         }
+        //设置tmp等于head的下一个节点
         ListNode tmp = head.next;
+        //通过调用removeElements方法，把head.next节点当参数。
         tmp = removeElements(head.next, val);
+        //如果head.val等于val，则返回head.next；否则返回head本身
         if (head.val == val) {
             return head.next;
         } else {

@@ -49,13 +49,16 @@ public class _83_删除排序链表中的重复元素 {
         /**
          * 递归
          */
-        if(head==null || head.next == null){
+        //1。首先判断head是否为空或者head.next是否为null
+        if(head == null || head.next == null){
             return  head;
         }
+        //2。通过递归方式进行判断
         head.next = deleteDuplicates(head.next);
+        //3。判断head.val和head.next.val的值是否相等
         if(head.val == head.next.val){
-            head=head.next;
+            head = head.next;
         }
-        return head;
+        return  head;
     }
 }

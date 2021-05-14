@@ -85,20 +85,27 @@ public class _141_环形链表 {
      * @return
      */
     public boolean hasCycle(ListNode head) {
+        //1.判断head是否为null或者head.next是否为null
         if(head == null || head.next == null) {
             return false;
         }
+        //2.设置慢指针等于head，快指针等于head.next
         ListNode slow = head;
         ListNode fast = head.next;
+        //3.当快指针不为null或者快指针的下一个节点不为null,则进行遍历链表
+        //条件表达式
         while (fast != null || fast.next != null){
-
+            //慢指针等于慢指针的下一节点
             slow=slow.next;
+            //快指针等于快指针的下两个节点
             fast=fast.next.next;
+            //如果慢指针等于快指针，则返回true，说明链表是环形链表
             if (slow==fast){
                 return true;
             }
         }
 
+        //false说明链表不是环形链表  3
         return  false;
     }
 }
