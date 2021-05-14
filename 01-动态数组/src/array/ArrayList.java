@@ -65,7 +65,10 @@ public class ArrayList<E> {
 
     /**
      * 在index位置插入一个元素
-     *
+     *时间复杂度
+     * 最好： O(1)
+     * 最坏：O(n)
+     * 平均：O(n)
      * @param index
      * @param element
      */
@@ -97,6 +100,7 @@ public class ArrayList<E> {
     /**
      * 获取index位置的元素
      * index表示数组的下标
+     * 时间复杂度O(1)，随机访问很快
      * @param index
      * @param index
      * @return 原来的元素ֵ
@@ -109,6 +113,7 @@ public class ArrayList<E> {
     /**
      * 设置index位置的元素
      *  先获取原来的元素，然后把新增的元素替换到原来的元素位置，并且返回原来index位置的元素
+     *  时间复杂度O(1)
      * @param index
      * @param element
      * @return 原来的元素ֵ
@@ -123,6 +128,10 @@ public class ArrayList<E> {
     /**
      * 删除index位置的元素
      *根据index查找index位置ide元素，然后通过对数组进行遍历，遍历初始值是index,并且长度是数组数量-1，然后从index位置到size-1的位置开始往前移动一位，并且将最后一位设置为null,然后返回被删除的元素
+     *时间复杂度
+     * 最好：O（1）
+     * 最坏：O(n)
+     * 最坏：O(n)
      * @param index
      * @return
      */
@@ -140,8 +149,13 @@ public class ArrayList<E> {
         }
         // 删除元素后, 将最后一位设置为null
         elements[--size] = null;
+        trim();
         return old;
     }
+
+
+
+
 
     public void remove(E element) {
         remove(indexOf(element));
@@ -209,6 +223,24 @@ public class ArrayList<E> {
         }
         elements = newElements;
         System.out.println("size=" + oldCapacity + ", 扩容到了" + newCapacity);
+    }
+
+    /**
+     * 动态缩容
+     */
+    private  void trim(){
+        int oldCapacity = elements.length;
+        int newCapacity = oldCapacity >> 1;
+        if(size>=(newCapacity) || oldCapacity <= DEFAULT_CAPACITY){
+            return;
+        }
+
+        E[] newElements = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newElements[i] = elements[i];
+        }
+        elements = newElements;
+        System.out.println("size=" + oldCapacity + ", 缩容到" + newCapacity);
     }
 
     /****************封装好的功能函数**************************/
