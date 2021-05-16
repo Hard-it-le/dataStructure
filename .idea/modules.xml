@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/00-leetcode/00-leetcode.iml" filepath="$PROJECT_DIR$/00-leetcode/00-leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/01-动态数组/01-动态数组.iml" filepath="$PROJECT_DIR$/01-动态数组/01-动态数组.iml" />
       <module fileurl="file://$PROJECT_DIR$/02-链表/02-链表.iml" filepath="$PROJECT_DIR$/02-链表/02-链表.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-栈/03-栈.iml" filepath="$PROJECT_DIR$/03-栈/03-栈.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-队列/04-队列.iml" filepath="$PROJECT_DIR$/04-队列/04-队列.iml" />
       <module fileurl="file://$PROJECT_DIR$/data-structure.iml" filepath="$PROJECT_DIR$/data-structure.iml" />
     </modules>
   </component>
