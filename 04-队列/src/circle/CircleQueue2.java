@@ -1,31 +1,13 @@
 package circle;
 
-/**
- * 循环队列
- * <p>
- * 队列的底层也可以用动态数据实现，并且接口的复杂度可以到O（1）的时间复杂度
- */
-public class CircleQueue<E> {
-
-    /**
-     * 记录第0个元素的索引
-     */
-    private int front;
-
-    /**
-     * 当前队列存储的元素个数**
-     */
-    private int size;
-    /**
-     * 用来存储元素的数组
-     * 利用动态扩容数组实现的循环队列
-     */
+public class CircleQueue2<E> {
+    private int front; // 队头指针
+    private int size; // 元素数量
+    // 利用动态扩容数组实现的循环队列
     private E elements[]; // 元素
+    public static final int DEFAULT_CAPACITY = 10; // 初始容量
 
-    //初始容量
-    private static final int DEFAULT_CAPACITY = 10;
-
-    public CircleQueue() {
+    public CircleQueue2() {
         elements = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
@@ -47,12 +29,9 @@ public class CircleQueue<E> {
      * 清空
      */
     public void clear() {
-        // while(size >= 0){
-        // elements[(front+size)%elements.length] = null;
-        // size--;
-        // }
         for (int i = 0; i < size; i++) {
             elements[index(i)] = null;
+            // elements[(i + front) %elements.length] = null;
         }
         size = 0;
         front = 0;
@@ -64,7 +43,7 @@ public class CircleQueue<E> {
     public E deQueue() {
         E fronElement = elements[front];
         elements[front] = null;
-        // front = (front + 1) %elements.length;
+        // front = (front + 1) % elements.length;
         front = index(1);
         size--;
         return fronElement;
@@ -90,23 +69,20 @@ public class CircleQueue<E> {
 
     // 将真实索引转换为循环队列上的索引
     private int index(int index) {
-        // 10%8 = 2 10-8=2
-        // 10%11 = 10 10
-//		return (front + index) % elements.length;
-        index += front;
-        return index - ((index >= elements.length) ? elements.length : 0);
+        return (front + index) % elements.length;
     }
 
     // 扩容
     private void ensureCapacity(int capacity) {
         int oldCapacity = elements.length;
-        if (oldCapacity >= capacity)
+        if (oldCapacity >= capacity) {
             return;
+        }
         // 新容量为旧容量的 1.5 倍
         int newCapacity = oldCapacity + (oldCapacity >> 1);
         E[] newElements = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) { // 旧数组中元素移到新数组
-            // 	newElements[i] = elements[(i + front) % elements.length];
+            // newElements[i] = elements[(i + front) % elements.length];
             newElements[i] = elements[index(i)];
         }
         System.out.println("从" + oldCapacity + "扩容到" + newCapacity);
@@ -128,4 +104,5 @@ public class CircleQueue<E> {
         string.append("]");
         return string.toString();
     }
+
 }
