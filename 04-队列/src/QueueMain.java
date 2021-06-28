@@ -40,10 +40,10 @@ public class QueueMain {
         for (int i = 15; i < 30; i++) {
             queue.enQueue(i);
         }
-		while (!queue.isEmpty()) {
-			System.out.println(queue.deQueue());
-		}
-//		queue.clear();
+//		while (!queue.isEmpty()) {
+//			System.out.println(queue.deQueue());
+//		}
+		queue.clear();
         System.out.println(queue);
     }
     public static void test4(){

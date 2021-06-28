@@ -39,6 +39,7 @@ public class Stack<E> {
         return
                 list.remove(list.size() - 1);
     }
+
     // 获取栈顶元素
     public E top() {
         // 查看栈顶元素, 就是查看列表中的最后一个元素

@@ -18,8 +18,15 @@ public class ArrayList<E> {
      * 初始容量
      */
     private static final int DEFAULT_CAPACITY = 10;
+    /**
+     * 查找不到元素就-1
+     */
     private static final int ELEMENT_NOT_FOUND = -1;
 
+    /**
+     *有参构造函数
+     * @param capacity
+     */
     public ArrayList(int capacity) {
         /**容量小于10一律扩充为10，三元表达式
          */
