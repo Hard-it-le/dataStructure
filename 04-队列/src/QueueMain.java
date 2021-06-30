@@ -2,18 +2,19 @@ import circle.CircleDeque;
 import circle.CircleQueue;
 
 public class QueueMain {
-    public static void test1(){
+    public static void test1() {
         Queue<Integer> queue = new Queue<>();
         queue.enQueue(1);
         queue.enQueue(2);
         queue.enQueue(3);
         queue.enQueue(4);
         System.out.println("size: " + queue.size());
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             System.out.println(queue.deQueue());
         }
     }
-    public static void test2(){
+
+    public static void test2() {
         Deque<Integer> deQueue = new Deque<>();
         /*尾  44  33  11  22   头 */
         deQueue.enQueueFront(11);
@@ -21,14 +22,15 @@ public class QueueMain {
         deQueue.enQueueRear(33);
         deQueue.enQueueRear(44);
 
-        while(!deQueue.isEmpty()){
+        while (!deQueue.isEmpty()) {
 //			System.out.println(deQueue.deQueueRear());// 44 33 11 22
             System.out.println(deQueue.deQueueFront());// 22 11 33 44
         }
     }
-    public static void test3(){
+
+    public static void test3() {
         CircleQueue<Integer> queue = new CircleQueue<Integer>();
-        // 0 1 2 3 4 5 6 7 8 9
+        // 队尾 0 1 2 3 4 5 6 7 8 9 对头
         for (int i = 0; i < 10; i++) {
             queue.enQueue(i);
         }
@@ -36,17 +38,19 @@ public class QueueMain {
         for (int i = 0; i < 5; i++) {
             queue.deQueue();
         }
-        // 15 16 17 18 19 f[5] 6 7 8 9
-        for (int i = 15; i < 30; i++) {
+        // 15 16 17 18 19 5 6 7 8 9
+        for (int i = 15; i < 20; i++) {
             queue.enQueue(i);
         }
-//		while (!queue.isEmpty()) {
-//			System.out.println(queue.deQueue());
-//		}
-		queue.clear();
         System.out.println(queue);
+        while (!queue.isEmpty()) {
+            System.out.println(queue.deQueue());
+        }
+        //queue.clear();
+
     }
-    public static void test4(){
+
+    public static void test4() {
 //		CircleDeque2<Integer> queue = new CircleDeque2<>();
         CircleDeque<Integer> queue = new CircleDeque<>();
         // 头5 4 3 2 1  100 101 102 103 104 105 106 8 7 6 尾
