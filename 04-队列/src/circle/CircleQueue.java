@@ -20,7 +20,7 @@ public class CircleQueue<E> {
      * 用来存储元素的数组
      * 利用动态扩容数组实现的循环队列
      */
-    private E elements[]; // 元素
+    private E[] elements; // 元素
 
     //初始容量
     private static final int DEFAULT_CAPACITY = 10;

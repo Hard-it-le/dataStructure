@@ -1,10 +1,23 @@
 package circle;
 
 public class CircleDeque<E> {
-    private int front; // 队头指针
-    private int size;  // 元素数量
-    private E elements[]; // 元素
-    public static final int DEFAULT_CAPACITY = 10; // 初始容量
+    /**
+     * 记录第0个元素的索引
+     */
+    private int front;
+
+    /**
+     * 当前队列存储的元素个数**
+     */
+    private int size;
+    /**
+     * 用来存储元素的数组
+     * 利用动态扩容数组实现的循环队列
+     */
+    private E[] elements; // 元素
+
+    //初始容量
+    private static final int DEFAULT_CAPACITY = 10;
 
     public CircleDeque() {
         elements = (E[]) new Object[DEFAULT_CAPACITY];
