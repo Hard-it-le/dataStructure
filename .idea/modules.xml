@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/02-链表/02-链表.iml" filepath="$PROJECT_DIR$/02-链表/02-链表.iml" />
       <module fileurl="file://$PROJECT_DIR$/03-栈/03-栈.iml" filepath="$PROJECT_DIR$/03-栈/03-栈.iml" />
       <module fileurl="file://$PROJECT_DIR$/04-队列/04-队列.iml" filepath="$PROJECT_DIR$/04-队列/04-队列.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-二叉树/05-二叉树.iml" filepath="$PROJECT_DIR$/05-二叉树/05-二叉树.iml" />
       <module fileurl="file://$PROJECT_DIR$/data-structure.iml" filepath="$PROJECT_DIR$/data-structure.iml" />
     </modules>
   </component>
