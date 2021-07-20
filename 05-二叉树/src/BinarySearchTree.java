@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 /**
  * @author yujiale
  * @Classname BinarySeachTree
@@ -17,6 +19,15 @@ public class BinarySearchTree<E> {
 
     private int size;
     private Node<E> root;
+    private Comparator<E> comparator;
+
+    public BinarySearchTree() {
+        this(null);
+    }
+
+    public BinarySearchTree(Comparator<E> comparator) {
+        this.comparator = comparator;
+    }
 
     private static class Node<E> {
         E element;
@@ -52,7 +63,10 @@ public class BinarySearchTree<E> {
      * @return
      */
     private int compare(E e1, E e2) {
-        return 0;
+        if (comparator != null){
+            return comparator.compare(e1, e2);
+        }
+       return ((Comparable<E>)e1).compareTo(e2);
     }
 
 
@@ -102,12 +116,12 @@ public class BinarySearchTree<E> {
             }
         }
         //2.查看插入到父节点的哪个位置，先创建新节点
-        Node<E> newNode = new Node<>(element,parent);
+        Node<E> newNode = new Node<>(element, parent);
         //3.parent.left = node  或 parent.right = node
-        if (compare >0){
-            parent.right=newNode;
-        }else {
-            parent.left =newNode ;
+        if (compare > 0) {
+            parent.right = newNode;
+        } else {
+            parent.left = newNode;
         }
         size++;
 
