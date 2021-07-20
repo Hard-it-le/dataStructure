@@ -1,3 +1,5 @@
+import printer.BinaryTreeInfo;
+
 import java.util.Comparator;
 
 /**
@@ -15,18 +17,45 @@ import java.util.Comparator;
  * **优点： 提高搜索效率
  * **注意： 二叉搜索树的数据必须具备可比较树（可以自定义比较方式）
  */
-public class BinarySearchTree<E> {
+public class BinarySearchTree<E>  implements BinaryTreeInfo {
 
     private int size;
+    //根节点
     private Node<E> root;
+    //比较器
     private Comparator<E> comparator;
 
+    //默认不传
     public BinarySearchTree() {
         this(null);
     }
 
+    /**
+     * 默认传比较器
+     * @param comparator
+     */
     public BinarySearchTree(Comparator<E> comparator) {
         this.comparator = comparator;
+    }
+
+    @Override
+    public Object root() {
+        return root;
+    }
+
+    @Override
+    public Object left(Object node) {
+        return ((Node<E>)node).left;
+    }
+
+    @Override
+    public Object right(Object node) {
+        return ((Node<E>)node).right;
+    }
+
+    @Override
+    public Object string(Object node) {
+        return ((Node<E>)node).element;
     }
 
     private static class Node<E> {
@@ -87,6 +116,7 @@ public class BinarySearchTree<E> {
     }
 
     public void add(E element) {
+        //判断节点的值是否为空
         elementNotNullCheck(element);
         //如果root为空，则添加第一个节点
         if (root == null) {
@@ -94,24 +124,25 @@ public class BinarySearchTree<E> {
             size++;
             return;
         }
-        //1.首先找到父节点parent
-        Node<E> parent = root;
+        //1.首先找到父节点parent，  添加的不是第一个节点
         Node<E> node = root;
+        Node<E> parent = root;
         int compare = 0;
         //如果node为null，则表示为最后一个节点的元素的节点为空
         while (node != null) {
             //保存父节点
-            parent = root;
+            parent = node;
             //通过传入的元素和父节点的元素进行比较
             compare = compare(element, node.element);
             //如果结果大于0 ，则表示输入的元素要与右边进行比较
-            if (compare > 0) {
+            if (compare >0) {
                 node = node.right;
                 //如果结果小于0 ，则表示输入的元素要与左边进行比较
             } else if (compare < 0) {
                 node = node.left;
             } else {
                 //如果相等，则直接返回
+                node.element = element;
                 return;
             }
         }
@@ -124,7 +155,6 @@ public class BinarySearchTree<E> {
             parent.left = newNode;
         }
         size++;
-
     }
 
     public boolean contains(E element) {

@@ -22,15 +22,14 @@ public class Person implements Comparable<Person> {
         this.age = age;
     }
 
+
     @Override
-    public int compateTo(Person p) {
-        // if (this.age >p.age){
-        //     return 1;
-        // } else if (this.age<p.age){
-        //     return -1;
-        // }else {
-        //     return 0;
-        // }
-        return age - p.age;
+    public int compareTo(Person o) {
+        return age - o.age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person_age = "+age+"";
     }
 }
