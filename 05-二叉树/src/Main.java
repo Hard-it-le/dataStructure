@@ -1,3 +1,4 @@
+import file.Files;
 import printer.BinaryTrees;
 
 import java.util.Comparator;
@@ -26,13 +27,17 @@ public class Main {
 
     static void test1() {
         Integer[] data = new Integer[]{
-                7, 4, 9, 2, 5, 8, 11, 3, 12, 1
+                7, 4, 9, 2, 5, 8, 11, 3, 12, 1,10
         };
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
         BinaryTrees.println(bst);
+       // bst.preorderTraversal();
+       // bst.inorderTraversal();
+        //bst.postorderTraversal();
+        bst.levelOrderTraversal();
     }
 
     static void test2() {
@@ -50,19 +55,24 @@ public class Main {
         Integer[] data = new Integer[]{
                 7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
-        BinarySearchTree<Person> bst3 = new BinarySearchTree<>(new PersonComparator());
+        BinarySearchTree<Person> bst3 = new BinarySearchTree<>(new PersonComparator2());
         for (int i = 0; i < data.length; i++) {
             bst3.add(new Person(data[i]));
         }
         BinaryTrees.println(bst3);
     }
 
+    static void test4() {
+        BinarySearchTree<Integer> bst4 = new BinarySearchTree<>();
+        for (int i = 0; i < 30; i++) {
+            bst4.add((int) (Math.random() * 100));
+        }
+        String s = BinaryTrees.printString(bst4);
+        Files.writeToFile("",s);
+    }
+
 
     public static void main(String[] args) {
-        test2();
-
-        // BinarySearchTree<Person> bst3 = new BinarySearchTree<>(new PersonComparator2());
-        // bst2.add(new Person(12));
-        // bst2.add(new Person(15));
+        test1();
     }
 }

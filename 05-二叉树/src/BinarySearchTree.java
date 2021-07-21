@@ -1,6 +1,8 @@
 import printer.BinaryTreeInfo;
 
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author yujiale
@@ -17,7 +19,7 @@ import java.util.Comparator;
  * **优点： 提高搜索效率
  * **注意： 二叉搜索树的数据必须具备可比较树（可以自定义比较方式）
  */
-public class BinarySearchTree<E>  implements BinaryTreeInfo {
+public class BinarySearchTree<E> implements BinaryTreeInfo {
 
     private int size;
     //根节点
@@ -32,6 +34,7 @@ public class BinarySearchTree<E>  implements BinaryTreeInfo {
 
     /**
      * 默认传比较器
+     *
      * @param comparator
      */
     public BinarySearchTree(Comparator<E> comparator) {
@@ -45,17 +48,22 @@ public class BinarySearchTree<E>  implements BinaryTreeInfo {
 
     @Override
     public Object left(Object node) {
-        return ((Node<E>)node).left;
+        return ((Node<E>) node).left;
     }
 
     @Override
     public Object right(Object node) {
-        return ((Node<E>)node).right;
+        return ((Node<E>) node).right;
     }
 
     @Override
     public Object string(Object node) {
-        return ((Node<E>)node).element;
+        Node<E> myNode = ((Node<E>) node);
+        String parentString = "null";
+        if (myNode.parent != null) {
+            parentString = "" + myNode.parent.element.toString();
+        }
+        return myNode.element + "_p(" + parentString + ")";
     }
 
     private static class Node<E> {
@@ -71,6 +79,88 @@ public class BinarySearchTree<E>  implements BinaryTreeInfo {
     }
 
     /**
+     * 前序遍历
+     */
+    public void preorderTraversal() {
+        preorderTraversal(root);
+    }
+
+    /**
+     * 递归实现前序遍历
+     *
+     * @param node
+     */
+    private void preorderTraversal(Node<E> node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.element + " ");
+        preorderTraversal(node.left);
+        preorderTraversal(node.right);
+    }
+
+
+    /**
+     * 中序遍历
+     */
+    public void inorderTraversal() {
+        inorderTraversal(root);
+    }
+
+    /**
+     * 递归实现中序遍历
+     *
+     * @param node
+     */
+    private void inorderTraversal(Node<E> node) {
+        if (node == null) {
+            return;
+        }
+        inorderTraversal(node.left);
+        System.out.print(node.element + " ");
+        inorderTraversal(node.right);
+    }
+
+    /**
+     * 后序遍历
+     */
+    public void postorderTraversal() {
+        postorderTraversal(root);
+    }
+
+    /**
+     * 递归实现后序遍历
+     *
+     * @param node
+     */
+    private void postorderTraversal(Node<E> node) {
+        if (node == null) {
+            return;
+        }
+        postorderTraversal(node.left);
+        postorderTraversal(node.right);
+        System.out.print(node.element + " ");
+    }
+
+    public void levelOrderTraversal() {
+        if (root == null) {
+            return;
+        }
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node<E> node = queue.poll();
+            System.out.print(node.element + " ");
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+    }
+
+    /**
      * 元素检验是否为空
      *
      * @param element
@@ -79,6 +169,12 @@ public class BinarySearchTree<E>  implements BinaryTreeInfo {
         if (element == null) {
             throw new IllegalArgumentException("element must not null");
         }
+    }
+    public void levelOrder(visitor<E> visitor){}
+
+
+    public static interface visitor<E> {
+        void visit(E element);
     }
 
     /**
@@ -92,10 +188,10 @@ public class BinarySearchTree<E>  implements BinaryTreeInfo {
      * @return
      */
     private int compare(E e1, E e2) {
-        if (comparator != null){
+        if (comparator != null) {
             return comparator.compare(e1, e2);
         }
-       return ((Comparable<E>)e1).compareTo(e2);
+        return ((Comparable<E>) e1).compareTo(e2);
     }
 
 
@@ -135,7 +231,7 @@ public class BinarySearchTree<E>  implements BinaryTreeInfo {
             //通过传入的元素和父节点的元素进行比较
             compare = compare(element, node.element);
             //如果结果大于0 ，则表示输入的元素要与右边进行比较
-            if (compare >0) {
+            if (compare > 0) {
                 node = node.right;
                 //如果结果小于0 ，则表示输入的元素要与左边进行比较
             } else if (compare < 0) {
