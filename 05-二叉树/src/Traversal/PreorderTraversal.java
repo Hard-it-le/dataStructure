@@ -12,6 +12,10 @@ package Traversal;
  * ** 其次访问前序遍历的左字树
  * ** 最后访问前序遍历右字树
  * 递归
+ *
+ * 应用
+ * **  树状结构的展示
+ *
  */
 public class PreorderTraversal {
 

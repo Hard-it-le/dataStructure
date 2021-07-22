@@ -142,6 +142,9 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
         System.out.print(node.element + " ");
     }
 
+    /**
+     * 层序遍历（从上到下、从左到右遍历）
+     */
     public void levelOrderTraversal() {
         if (root == null) {
             return;
@@ -170,11 +173,125 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
             throw new IllegalArgumentException("element must not null");
         }
     }
-    public void levelOrder(visitor<E> visitor){}
+
+    /**
+     * 自定义遍历规则层序遍历
+     *
+     * @param visitor
+     */
+    public void levelOrder(visitor<E> visitor) {
+        if (root == null || visitor == null) {
+            return;
+        }
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node<E> node = queue.poll();
+            if (visitor.visit(node.element)) {
+                return;
+            }
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+    }
+
+    /**
+     * 自定义规则前序遍历
+     *
+     * @param visitor
+     */
+    public void preorder(visitor<E> visitor) {
+        if (visitor == null) {
+            return;
+        }
+        perorder(root, visitor);
+    }
+
+    /**
+     * 递归前序遍历
+     *
+     * @param node
+     * @param visitor
+     */
+    private void perorder(Node<E> node, visitor<E> visitor) {
+        if (node == null || visitor.stop) {
+            return;
+        }
+        if (visitor.stop == true) {
+            return;
+        }
+        visitor.stop = visitor.visit(node.element);
+        perorder(node.left, visitor);
+        perorder(node.right, visitor);
+    }
+
+    /**
+     * 自定义规则中序遍历
+     *
+     * @param visitor
+     */
+    public void inorder(visitor<E> visitor) {
+        if (visitor == null) {
+            return;
+        }
+        inorder(root, visitor);
+    }
+
+    /**
+     * 递归中序遍历
+     *
+     * @param node
+     * @param visitor
+     */
+    private void inorder(Node<E> node, visitor<E> visitor) {
+        if (node == null || visitor.stop) {
+            return;
+        }
+        inorder(node.left, visitor);
+        if (visitor.stop == true) {
+            return;
+        }
+        visitor.stop = visitor.visit(node.element);
+        inorder(node.right, visitor);
+    }
+
+    public void postorder(visitor<E> visitor) {
+        if (visitor == null) {
+            return;
+        }
+        postorder(root, visitor);
+    }
+
+    private void postorder(Node<E> node, visitor<E> visitor) {
+        if (node == null || visitor.stop) {
+            return;
+        }
+        postorder(node.left, visitor);
+        postorder(node.right, visitor);
+        if (visitor.stop == true) {
+            return;
+        }
+        visitor.stop = visitor.visit(node.element);
+    }
 
 
-    public static interface visitor<E> {
-        void visit(E element);
+    /**
+     * 通过外界来自定义遍历逻辑
+     *
+     * @param <E>
+     */
+    public static abstract class visitor<E> {
+        boolean stop;
+
+        /**
+         * @param element
+         * @return 如果返回true，就停止遍历
+         */
+        abstract boolean visit(E element);
     }
 
     /**
@@ -257,4 +374,25 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
         return false;
     }
 
+    /**
+     * 利用前序遍历打印二叉树
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        toString(root, sb, "");
+        return sb.toString();
+    }
+
+    private void toString(Node<E> node, StringBuilder sb, String prefix) {
+        if (node == null) {
+            return;
+        }
+        sb.append(prefix).append("[").append(node.element).append("]").append("\n");
+        toString(node.left, sb, prefix + "[L]");
+        toString(node.right, sb, prefix + "[R]");
+
+    }
 }

@@ -27,22 +27,22 @@ public class Main {
 
     static void test1() {
         Integer[] data = new Integer[]{
-                7, 4, 9, 2, 5, 8, 11, 3, 12, 1,10
+                7, 4, 9, 2, 5, 8, 11, 3, 12, 1, 10
         };
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
-        BinaryTrees.println(bst);
-       // bst.preorderTraversal();
-       // bst.inorderTraversal();
+        System.out.println(bst);
+        //BinaryTrees.println(bst);
+        // bst.preorderTraversal();
+        // bst.inorderTraversal();
         //bst.postorderTraversal();
-        bst.levelOrderTraversal();
     }
 
     static void test2() {
         Integer[] data = new Integer[]{
-                7, 4, 9, 2, 5, 8, 11, 3,12,1
+                7, 4, 9, 2, 5, 8, 11, 3, 12, 1
         };
         BinarySearchTree<Person> bst1 = new BinarySearchTree<>(new PersonComparator());
         for (int i = 0; i < data.length; i++) {
@@ -68,9 +68,42 @@ public class Main {
             bst4.add((int) (Math.random() * 100));
         }
         String s = BinaryTrees.printString(bst4);
-        Files.writeToFile("",s);
+        Files.writeToFile("", s);
     }
 
+    static void test5() {
+        Integer[] data = new Integer[]{
+                7, 4, 9, 2, 5, 8, 11, 3, 12, 1, 10
+        };
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        for (int i = 0; i < data.length; i++) {
+            bst.add(data[i]);
+        }
+        BinaryTrees.println(bst);
+        bst.preorder(new BinarySearchTree.visitor<Integer>() {
+            @Override
+            public boolean visit(Integer element) {
+                System.out.print(element + " ");
+                return element == 2 ? true : false;
+            }
+        });
+        System.out.println();
+        bst.inorder(new BinarySearchTree.visitor<Integer>() {
+            @Override
+            public boolean visit(Integer element) {
+                System.out.print(element + "_ ");
+                return element == 2 ? true : false;
+            }
+        });
+        System.out.println();
+        bst.postorder(new BinarySearchTree.visitor<Integer>() {
+            @Override
+            public boolean visit(Integer element) {
+                System.out.print(element + " _ ");
+                return element == 2 ? true : false;
+            }
+        });
+    }
 
     public static void main(String[] args) {
         test1();

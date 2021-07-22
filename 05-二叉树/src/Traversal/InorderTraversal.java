@@ -11,6 +11,9 @@ package Traversal;
  * ** 优先中序遍历访问左子树
  * ** 然后访问根节点
  * ** 最后中序遍历右字树
+ *
+ * 应用
+ * ** 二叉搜索树的中序遍历按升序或者降序处理节点
  */
 public class InorderTraversal {
 }

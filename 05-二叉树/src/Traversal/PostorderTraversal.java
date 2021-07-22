@@ -11,6 +11,9 @@ package Traversal;
  * ** 优先访问后序遍历左字树
  * ** 然后访问后序遍历右字树
  * ** 最后访问根节点
+ *
+ * 应用
+ * ** 适用于一些先子后父的操作
  */
 public class PostorderTraversal {
 }
