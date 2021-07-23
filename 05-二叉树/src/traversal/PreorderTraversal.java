@@ -1,4 +1,4 @@
-package Traversal;
+package traversal;
 
 /**
  * @author yujiale
@@ -18,5 +18,4 @@ package Traversal;
  *
  */
 public class PreorderTraversal {
-
 }

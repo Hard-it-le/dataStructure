@@ -1,4 +1,4 @@
-package Traversal;
+package traversal;
 
 /**
  * @author yujiale
