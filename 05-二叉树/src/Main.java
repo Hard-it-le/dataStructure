@@ -39,7 +39,7 @@ public class Main {
         // bst.preorderTraversal();
         // bst.inorderTraversal();
         //bst.postorderTraversal();
-        System.out.println(bst.isCompleteTree());
+        System.out.println(bst.isCompleteTree1());
     }
 
     static void test2() {
