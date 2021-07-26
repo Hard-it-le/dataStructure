@@ -27,17 +27,19 @@ public class Main {
 
     static void test1() {
         Integer[] data = new Integer[]{
-                7, 4, 9, 2, 5, 8, 11, 3, 12, 1, 10
+                //7, 4, 9, 2, 5, 8, 11, 3, 12, 1, 10
+                7, 4, 9, 2, 1
         };
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         for (int i = 0; i < data.length; i++) {
             bst.add(data[i]);
         }
-        System.out.println(bst);
-        //BinaryTrees.println(bst);
+       // System.out.println(bst);
+        BinaryTrees.println(bst);
         // bst.preorderTraversal();
         // bst.inorderTraversal();
         //bst.postorderTraversal();
+        System.out.println(bst.isCompleteTree());
     }
 
     static void test2() {
