@@ -447,6 +447,40 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
      * @return
      */
     public boolean isCompleteTree() {
+        //判断节点是够为空，如果为空则返回false
+        if (root == null) {
+            return false;
+        }
+        //创建队列，然后把数据入队
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.offer(root);
+        //判断节点是否是叶子节点
+        boolean leaf = false;
+        while (!queue.isEmpty()) {
+            Node<E> node = queue.poll();
+            if (leaf && !node.isLeaf()) {
+                return false;
+            }
+            if (node.left != null && node.right != null) {
+                //将数据入队
+                queue.offer(node.left);
+                queue.offer(node.right);
+            } else if (node.left == null && node.right != null) {
+                return false;
+            } else {
+                //后面遍历的节点都必须是叶子节点
+                leaf = true;
+                //如果元素左边的元素不等于则入队
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+            }
+
+        }
+        return true;
+    }
+
+    public boolean isCompleteTree1() {
         if (root == null) {
             return false;
         }
@@ -458,19 +492,20 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
             if (leaf && !node.isLeaf()) {
                 return false;
             }
-            if (node.left != null && node.right != null) {
+            if (node.left != null) {
                 queue.offer(node.left);
-                queue.offer(node.right);
-            } else if (node.left == null && node.right != null) {
+            } else if (node.right != null) {
+                //node.left == null && node.right != null
                 return false;
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
             } else {
                 //后面遍历的节点都必须是叶子节点
+                //node.left == null && node.right == null
+                //node.left != null && node.right == null
                 leaf = true;
-                if (node.left != null) {
-                    queue.offer(node.left);
-                }
             }
-
         }
         return true;
     }
