@@ -97,6 +97,17 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
     }
 
     /**
+     * 获取前驱节点
+     *
+     * @param node
+     * @return
+     */
+    private Node<E> predesessor(Node<E> node) {
+        return node.left;
+    }
+
+
+    /**
      * 前序遍历
      */
     public void preorderTraversal() {
@@ -285,7 +296,7 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
     }
 
     private void postorder(Node<E> node, visitor<E> visitor) {
-        //停止递归终止
+        // 停止递归终止
         if (node == null || visitor.stop) {
             return;
         }
@@ -308,6 +319,7 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
         boolean stop;
 
         /**
+         * 静态变量，外界自定义
          * @param element
          * @return 如果返回true，就停止遍历
          */
