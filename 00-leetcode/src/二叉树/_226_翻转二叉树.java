@@ -48,12 +48,11 @@ public class _226_翻转二叉树 {
         /**
          * 前序遍历
          */
-        // TreeNode tmp = root.left;
-        // root.left = root.right;
-        // root.right = tmp;
-        // invertTree(root.left);
-        // invertTree(root.right);
-
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+        invertTree(root.left);
+        invertTree(root.right);
         return root;
     }
 
@@ -67,7 +66,6 @@ public class _226_翻转二叉树 {
         if (root == null) {
             return root;
         }
-
         invertTree(root.left);
         TreeNode tmp = root.left;
         root.left = root.right;

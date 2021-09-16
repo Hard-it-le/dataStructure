@@ -9,4 +9,7 @@ package contact;
  * 树状打印二叉树
  */
 public class PrintTree {
+    public static void main(String[] args) {
+
+    }
 }

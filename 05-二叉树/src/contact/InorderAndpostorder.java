@@ -8,6 +8,8 @@ package contact;
  * @Created by yujiale
  * 已知中序遍历和后序遍历
  * 求前序遍历
+ * 中序遍历：
+ * 后序遍历：
  */
 public class InorderAndpostorder {
 }

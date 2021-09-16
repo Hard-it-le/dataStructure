@@ -21,7 +21,6 @@ public class Stack<E> {
         return list.size();
     }
 
-    //是否为空
     public boolean isEmpty() {
         // 栈是否空, 就是列表是否空
         return list.isEmpty();
