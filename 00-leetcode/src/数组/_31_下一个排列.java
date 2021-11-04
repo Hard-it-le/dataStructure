@@ -107,15 +107,12 @@ public class _31_下一个排列 {
      */
     public void nextPermutation02(int[] nums) {
         int n = nums.length;
-
         // 1. 从后向前找到升序子序列，找到第一次下降的数，位置记为k
         int k = n - 2;
         while (k >= 0 && nums[k] >= nums[k + 1]) {
             k--;
         }
-
         // 找到k，就是需要调整部分的最高位
-
         // 2. 如果k = -1，说明所有数降序排列，改成升序排列
         if (k == -1) {
             reverse(nums, 0, n - 1);
@@ -130,7 +127,6 @@ public class _31_下一个排列 {
         }
 
         // 当前的i，就是后面部分第一个比nums[k]小的数，i-1就是要替换的那个数
-
         // 3.2 交换i-1和k位置上的数
         swap(nums, k, i - 1);
 
