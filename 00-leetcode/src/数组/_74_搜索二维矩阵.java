@@ -43,12 +43,44 @@ package 数组;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 public class _74_搜索二维矩阵 {
+    /**
+     * 二分查找
+     * @param matrix
+     * @param target
+     * @return
+     */
     public boolean searchMatrix(int[][] matrix, int target) {
-
+        //定义m和n
+        int m = matrix.length;
+        if (m == 0) {
+            return false;
+        }
+        int n = matrix[0].length;
+        //定义左右指针
+        int left = 0;
+        int right = m * n - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            //计算二维矩阵中对应的行列号，取出对应元素
+            int midElement = matrix[mid / n][mid % n];
+            if (midElement < target) {
+                left = mid + 1;
+            } else if (midElement > target) {
+                right = mid - 1;
+            } else {
+                return true;
+            }
+        }
         return false;
     }
 
     public static void main(String[] args) {
-
+        int[][] arr = {
+                {1,3,5,7},{10,11,16,20},{23,30,34,60}
+        };
+        int target = 31;
+        _74_搜索二维矩阵 v = new _74_搜索二维矩阵();
+        boolean b = v.searchMatrix(arr, target);
+        System.out.println(b);
     }
 }
