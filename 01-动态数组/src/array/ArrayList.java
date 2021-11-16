@@ -1,35 +1,32 @@
 package array;
 
 /**
- * 动态数组
+ * @program: data-structure
+ * @author: yjl
+ * @created: 2021/11/16
+ * 动态数组源码解析
  */
 public class ArrayList<E> {
-
-    /**
-     * 元素的数量
-     */
+    //元素的数量
     private int size;
-    /**
-     * 所有的元素
-     */
+
+    //所有的元素
     private E[] elements;
 
-    /**
-     * 初始容量
-     */
+    //初始容量
     private static final int DEFAULT_CAPACITY = 10;
-    /**
-     * 查找不到元素就-1
-     */
+
+    //查找不到元素就-1
     private static final int ELEMENT_NOT_FOUND = -1;
 
+
     /**
-     *有参构造函数
+     * 有参构造
+     *
      * @param capacity
      */
     public ArrayList(int capacity) {
-        /**容量小于10一律扩充为10，三元表达式
-         */
+        //容量小于10一律扩充为10，三元表达式
         capacity = (capacity < DEFAULT_CAPACITY) ? DEFAULT_CAPACITY : capacity;
         elements = (E[]) new Object[capacity];
     }
@@ -52,7 +49,8 @@ public class ArrayList<E> {
 
     /**
      * 是否为空
-     *如果数组的数量==0 则表示该数组为空
+     * 如果数组的数量==0 则表示该数组为空
+     *
      * @return
      */
     public boolean isEmpty() {
@@ -66,21 +64,21 @@ public class ArrayList<E> {
      * @return
      */
     public boolean contains(E element) {
-        // 找的到该元素则返回True
         return indexOf(element) != ELEMENT_NOT_FOUND;
     }
 
     /**
      * 在index位置插入一个元素
-     *时间复杂度
+     * 时间复杂度
      * 最好： O(1)
      * 最坏：O(n)
      * 平均：O(n)
+     *
      * @param index
      * @param element
      */
     public void add(int index, E element) {
-        // 检查下标越界
+        //检查下标是否越界
         rangeCheckForAdd(index);
         // 确保容量够大
         ensureCapacity(size + 1);
@@ -89,8 +87,8 @@ public class ArrayList<E> {
         // 在index=2处，插入9，元素全部后移
         // 1 2 9 3 4 5 6 x x x	(add后数组)
         // 先从后往前开始, 将每个元素往后移一位, 然后再赋值
-        for (int i = size - 1; i > index; i--) {
-            elements[i + 1] = elements[i];
+        for (int i = size; i > index; i--) {
+            elements[i] = elements[i - 1];
         }
         // 复制
         elements[index] = element;
@@ -108,19 +106,22 @@ public class ArrayList<E> {
      * 获取index位置的元素
      * index表示数组的下标
      * 时间复杂度O(1)，随机访问很快
+     *
      * @param index
      * @param index
      * @return 原来的元素ֵ
      */
     public E get(int index) {
+        //检验下标是否越界
         rangeCheck(index);
         return elements[index];
     }
 
     /**
      * 设置index位置的元素
-     *  先获取原来的元素，然后把新增的元素替换到原来的元素位置，并且返回原来index位置的元素
-     *  时间复杂度O(1)
+     * 先获取原来的元素，然后把新增的元素替换到原来的元素位置，并且返回原来index位置的元素
+     * 时间复杂度O(1)
+     *
      * @param index
      * @param element
      * @return 原来的元素ֵ
@@ -134,34 +135,26 @@ public class ArrayList<E> {
 
     /**
      * 删除index位置的元素
-     *根据index查找index位置ide元素，然后通过对数组进行遍历，遍历初始值是index,并且长度是数组数量-1，然后从index位置到size-1的位置开始往前移动一位，并且将最后一位设置为null,然后返回被删除的元素
-     *时间复杂度
+     * 根据index查找index位置ide元素，然后通过对数组进行遍历，
+     * 遍历初始值是index,并且长度是数组数量-1，
+     * 然后从index位置到size-1的位置开始往前移动一位，并且将最后一位设置为null,然后返回被删除的元素
+     * 时间复杂度
      * 最好：O（1）
      * 最坏：O(n)
      * 最坏：O(n)
+     *
      * @param index
      * @return
      */
     public E remove(int index) {
-        //检查elements数组中index下标是否越界
         rangeCheck(index);
-        // 0 1 2 3 4 5 	(index)
-        // 1 2 3 4 5 6 	(原数组)
-        // 删除index为2的元素，元素前移
-        // 1 2 4 5 6	(remove后的数组)
-        // 从前往后开始移, 用后面的元素覆盖前面的元素
         E old = elements[index];
-        for (int i = index; i < size - 1; i++) {
+        for (int i = index; i < size; i++) {
             elements[i] = elements[i + 1];
         }
-        // 删除元素后, 将最后一位设置为null
         elements[--size] = null;
-        trim();
         return old;
     }
-
-
-
 
 
     public void remove(E element) {
@@ -170,20 +163,14 @@ public class ArrayList<E> {
 
     /**
      * 查看元素的索引
-     *首先判断数组元素是否为空，如果为空，则遍历elements数组中元素是否等于null,如果相等则返回i,
+     * 首先判断数组元素是否为空，如果为空，则遍历elements数组中元素是否等于null,如果相等则返回i,
      * 如果数组元素不为空，则遍历elements数组，通过equals来判断数组元素是否相等，如果相等则返回i。
+     *
      * @param element
      * @return
      */
     public int indexOf(E element) {
-		/*
-		// 不对 null 进行处理也可以，但是健壮性不够
-		for (int i = 0; i < size; i++) {
-			if(elements[i].equals(element)) return i;
-		}
-		 */
-        // 对 null 进行处理
-        if (element == null) {
+        if (null == element) {
             for (int i = 0; i < size; i++) {
                 if (elements[i] == null) {
                     return i;
@@ -191,16 +178,17 @@ public class ArrayList<E> {
             }
         } else {
             for (int i = 0; i < size; i++) {
-                if (elements[i].equals(element)) {
+                if (element.equals(elements[i])) {
                     return i;
                 }
             }
         }
+
         return ELEMENT_NOT_FOUND;
     }
 
     /**
-     *遍历elements数组，然后使elements[i]每个数组都赋值为null，然后在设置size=0；
+     * 遍历elements数组，然后使elements[i]每个数组都赋值为null，然后在设置size=0；
      * 清除所有元素
      */
     public void clear() {
@@ -212,7 +200,9 @@ public class ArrayList<E> {
     }
 
     /**
-     *1.获取elements数组的长度，然后判断数组的长度是否大于新数组的长度，如果大于则不扩容，否则则扩容1.5=>相当于旧容量的1.5倍，然后new一个新的数组，容量为新容量
+     * 1.获取elements数组的长度，然后判断数组的长度是否大于新数组的长度，
+     * 如果大于则不扩容，否则则扩容1.5=>相当于旧容量的1.5倍，
+     * 然后new一个新的数组，容量为新容量
      * 遍历原数组，把原数组的元素拷贝到新数组中。
      * 数组扩容操作
      */
@@ -230,40 +220,54 @@ public class ArrayList<E> {
         }
         elements = newElements;
         System.out.println("size=" + oldCapacity + ", 扩容到了" + newCapacity);
+
     }
 
     /**
      * 动态缩容
      */
-    private  void trim(){
+    private void trimToSize() {
         int oldCapacity = elements.length;
         int newCapacity = oldCapacity >> 1;
-        if(size>=(newCapacity) || oldCapacity <= DEFAULT_CAPACITY){
+        if (size >= (newCapacity) || oldCapacity <= DEFAULT_CAPACITY) {
             return;
         }
-
         E[] newElements = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
+            // 拷贝原数组元素到新数组
             newElements[i] = elements[i];
         }
         elements = newElements;
         System.out.println("size=" + oldCapacity + ", 缩容到" + newCapacity);
+
     }
 
     /****************封装好的功能函数**************************/
-    // 下标越界抛出的异常
+    /**
+     * 下标越界抛出的异常
+     *
+     * @param index
+     */
     private void outOfBounds(int index) {
         throw new IndexOutOfBoundsException("Index:" + index + ", Size:" + size);
     }
 
-    // 检查下标越界(不可访问或删除size位置)
+    /**
+     * 检查下标越界(不可访问或删除size位置)
+     *
+     * @param index
+     */
     private void rangeCheck(int index) {
         if (index < 0 || index >= size) {
             outOfBounds(index);
         }
     }
 
-    // 检查add()的下标越界(可以在size位置添加元素)
+    /**
+     * 检查add()的下标越界(可以在size位置添加元素)
+     *
+     * @param index
+     */
     private void rangeCheckForAdd(int index) {
         if (index < 0 || index > size) {
             outOfBounds(index);
@@ -274,17 +278,17 @@ public class ArrayList<E> {
     @Override
     public String toString() {
         // 打印形式为: size=5, [99, 88, 77, 66, 55]
-        StringBuilder string = new StringBuilder();
-        string.append("size=").append(size).append(", [");
+        StringBuilder string = new StringBuilder(size);
+        StringBuilder append = string.append("size=")
+                .append(size)
+                .append(", [");
         for (int i = 0; i < size; i++) {
             if (0 != i) {
-                string.append(", ");
+                append.append(", ");
             }
-            string.append(elements[i]);
+            append.append(elements[i]);
         }
-        string.append("]");
-        return string.toString();
+        append.append("]");
+        return append.toString();
     }
-
-
 }

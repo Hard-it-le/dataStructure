@@ -6,6 +6,10 @@
  */
 class BubbleSort {
 
+    /**
+     * 方法一 暴力循环双重for循环
+     * @param array
+     */
     public static void bubbleSort01(int[] array) {
         int length = array.length;
 

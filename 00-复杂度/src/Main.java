@@ -40,7 +40,7 @@ public class Main {
      * 求第n个斐波拉契数
      * 0 1 1 2 3 5 8 13
      * 递归
-     * log2(n)
+     * 时间复杂度log2(n)
      *
      * @param n
      * @return
@@ -54,7 +54,7 @@ public class Main {
 
     /**
      * 求第n个斐波拉契数解法二
-     * O(n)
+     * 时间复杂度O(n)
      *
      * @param n
      * @return
@@ -88,6 +88,8 @@ public class Main {
 
     /**
      * 估算时间复杂度
+     * 时间复杂度是O（n）
+     * 空间复杂度是O（1）
      */
     public static void test01(int n) {
         if (n > 10) {
@@ -103,6 +105,11 @@ public class Main {
         }
     }
 
+    /**
+     * 时间复杂度是O（n）
+     * 空间复杂度是O（n）
+     * @param n
+     */
     public static void test02(int n) {
         // O(n)
         // 1 + 3n
@@ -111,6 +118,10 @@ public class Main {
         }
     }
 
+    /**
+     * 时间复杂度是O（n^2）
+     * @param n
+     */
     public static void test03(int n) {
         // 1 + 2n + n * (1 + 3n)
         // 1 + 2n + n + 3n^2
@@ -124,6 +135,10 @@ public class Main {
         }
     }
 
+    /**
+     *时间复杂度是O（n）
+     * @param n
+     */
     public static void test04(int n) {
         // 1 + 2n + n * (1 + 45)
         // 1 + 2n + 46n
@@ -136,6 +151,10 @@ public class Main {
         }
     }
 
+    /**
+     * 时间复杂度是O（log n）
+     * @param n
+     */
     public static void test05(int n) {
         // 8 = 2^3
         // 16 = 2^4
@@ -143,7 +162,7 @@ public class Main {
         // 4 = log2(16)
 
         // 执行次数 = log2(n)
-        // O(logn)
+        // O(log n)
         while ((n = n / 2) > 0) {
             System.out.println("test");
         }
@@ -151,7 +170,7 @@ public class Main {
 
     public static void test06(int n) {
         // log5(n)
-        // O(logn)
+        // O(log n)
         while ((n = n / 5) > 0) {
             System.out.println("test");
         }
@@ -160,7 +179,7 @@ public class Main {
     public static void test07(int n) {
         // 1 + 2*log2(n) + log2(n) * (1 + 3n)
         // 1 + 3*log2(n) + 2 * nlog2(n)
-        // O(nlogn)
+        // O(nlog n)
         for (int i = 1; i < n; i = i * 2) {
             // 1 + 3n
             for (int j = 0; j < n; j++) {

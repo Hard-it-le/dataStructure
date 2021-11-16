@@ -13,7 +13,9 @@ public class Times {
     }
 
     public static void test(String title, Task task) {
-        if (task == null) return;
+        if (task == null) {
+            return;
+        }
         title = (title == null) ? "" : ("【" + title + "】");
         System.out.println(title);
         System.out.println("开始：" + fmt.format(new Date()));
