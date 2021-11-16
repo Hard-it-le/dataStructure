@@ -61,6 +61,12 @@ public class ArrayList<E> extends AbstractList<E>{
     public boolean contains(E element){
         return indexOf(element) != ELEMENT_NOT_FOUND; //找的到该元素则返回True
     }
+
+    @Override
+    public void add(E element) {
+
+    }
+
     /**
      * 在index位置插入一个元素
      * @param index
