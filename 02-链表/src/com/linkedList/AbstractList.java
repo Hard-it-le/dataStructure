@@ -4,6 +4,7 @@ package com.linkedList;
  * @program: data-structure
  * @author: yjl
  * @created: 2021/11/16
+ * 单向链表普通实现
  */
 public abstract class AbstractList<E> implements List<E> {
     //元素的数量
