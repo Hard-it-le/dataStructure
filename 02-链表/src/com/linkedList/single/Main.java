@@ -1,6 +1,4 @@
-package com.linkedList;
-
-import com.linkedList.single.LinkedListHeadNode;
+package com.linkedList.single;
 
 /**
  * @program: data-structure
@@ -20,5 +18,10 @@ public class Main {
 
         linkedListHeadNode.remove(3);
         System.out.println(linkedListHeadNode.toString());
+
+        linkedListHeadNode.add(23);
+        linkedListHeadNode.add(60);
+        System.out.println(linkedListHeadNode.toString());
+
     }
 }
