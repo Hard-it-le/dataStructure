@@ -81,6 +81,7 @@ public class LinkedList<E> extends AbstractList<E> {
      */
     @Override
     public void add(int index, E element) {
+        rangeCheckForAdd(index);
         if (index == 0) {
             Node<E> newNode = new Node<>(element, firstNode);
             firstNode = newNode;
@@ -100,6 +101,7 @@ public class LinkedList<E> extends AbstractList<E> {
      */
     @Override
     public E remove(int index) {
+        rangeCheck(index);
         Node<E> node = node(index);
         if (index == 0) {
             firstNode = firstNode.next;
@@ -143,18 +145,18 @@ public class LinkedList<E> extends AbstractList<E> {
 
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
-        string.append("size = ").append(size).append(", [");
+        StringBuilder string = new StringBuilder(size);
+        StringBuilder append = string.append("size = ").append(size).append(", [");
         Node<E> node = firstNode;
         for (int i = 0; i < size; i++) {
             if (i != 0) {
-                string.append(",");
+                append.append(",");
             }
-            string.append(node.element);
+            append.append(node.element);
             node = node.next;
         }
-        string.append("]");
-        return string.toString();
+        append.append("]");
+        return append.toString();
     }
 
 
