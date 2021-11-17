@@ -8,7 +8,6 @@ import com.linkedList.AbstractList;
  * @created: 2021/11/16
  */
 public class LinkedList<E> extends AbstractList<E> {
-    private int size;
     private Node firstNode;
 
     private static class Node<E> {
