@@ -148,6 +148,7 @@ public class ArrayList<E> {
      */
     public E remove(int index) {
         rangeCheck(index);
+        trimToSize();
         E old = elements[index];
         for (int i = index; i < size; i++) {
             elements[i] = elements[i + 1];

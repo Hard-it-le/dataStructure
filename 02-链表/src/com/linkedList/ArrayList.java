@@ -68,7 +68,6 @@ public class ArrayList<E> extends AbstractList<E> {
      */
     @Override
     public int indexOf(E element) {
-
         if (null == element) {
             for (int i = 0; i < size; i++) {
                 if (elements[i] == null) {

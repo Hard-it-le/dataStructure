@@ -48,6 +48,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     /**
      * 获取某个元素的位置
+     * 时间复杂度： O（n）
      *
      * @param index
      * @return
@@ -60,6 +61,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     /**
      * 设置某个位置的元素
+     * 时间复杂度：O（n）
      *
      * @param index
      * @param element
@@ -75,6 +77,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     /**
      * 添加元素
+     * 时间复杂度 ： O（n）
      *
      * @param index
      * @param element
@@ -95,6 +98,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     /**
      * 移除元素
+     * 时间复杂度： O（n）
      *
      * @param index
      * @return
