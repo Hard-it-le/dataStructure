@@ -1,6 +1,9 @@
 import circle.CircleDeque;
 import circle.CircleQueue;
 
+/**
+ * @author yujiale
+ */
 public class QueueMain {
     public static void test1() {
         Queue<Integer> queue = new Queue<>();

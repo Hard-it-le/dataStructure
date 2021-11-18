@@ -3,6 +3,7 @@ package stack.list;
 /**
  * 有缩容功能的动态数组
  *
+ * @author yujiale
  * @param <E>
  */
 @SuppressWarnings("unchecked")

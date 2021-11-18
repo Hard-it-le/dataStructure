@@ -1,5 +1,8 @@
 package circle;
 
+/**
+ * @author yujiale
+ */
 public class CircleDeque<E> {
     /**
      * 记录第0个元素的索引

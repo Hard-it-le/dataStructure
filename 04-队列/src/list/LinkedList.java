@@ -4,6 +4,7 @@ package list;
 /**
  * 链表:    双向链表
  * 注意边界的问题
+ * @author yujiale
  */
 public class LinkedList<E> extends AbstractList<E> {
 

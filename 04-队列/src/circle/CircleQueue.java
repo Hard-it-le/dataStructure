@@ -4,6 +4,7 @@ package circle;
  * 循环队列
  * <p>
  * 队列的底层也可以用动态数据实现，并且接口的复杂度可以到O（1）的时间复杂度
+ * @author yujiale
  */
 public class CircleQueue<E> {
 

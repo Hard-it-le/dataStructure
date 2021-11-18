@@ -6,6 +6,7 @@ import list.List;
  * 队头（front）：只能从对头移除元素，一般叫做deQueue，出队
  * 先进先出原则
  * 队列有限使用双向链表，原因：队列做要是头尾进行操作元素
+ * @author yujiale
  */
 public class Queue<E> {
 

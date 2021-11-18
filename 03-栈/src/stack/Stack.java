@@ -10,6 +10,7 @@ import stack.list.List;
  * 2、从栈里面移除元素的操作，一般叫pop。出栈（只能移除顶层元素）
  * 3、栈尊守先进后出，后进先出的原则
  * 4、栈主要操作是在尾部添加或者删除元素
+ * @author yujiale
  */
 public class Stack<E> {
     //使用动态数据实现栈

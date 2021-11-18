@@ -4,6 +4,7 @@ import list.List;
 /**
  * 双端队列
  * 双端队列能在头尾两端添加、删除元素
+ * @author yujiale
  */
 public class Deque<E> {
 

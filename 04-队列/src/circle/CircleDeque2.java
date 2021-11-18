@@ -1,5 +1,8 @@
 package circle;
 
+/**
+ * @author yujiale
+ */
 public class CircleDeque2<E> {
     private int front; // 队头指针
     private int size; // 元素数量

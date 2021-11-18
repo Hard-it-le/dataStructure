@@ -1,5 +1,8 @@
 package list;
 
+/**
+ * @author yujiale
+ */
 public abstract class AbstractList<E> implements List<E> {
     //元素的数量
     protected int size;
