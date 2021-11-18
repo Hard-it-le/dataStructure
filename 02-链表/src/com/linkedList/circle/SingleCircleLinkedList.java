@@ -19,6 +19,14 @@ public class SingleCircleLinkedList<E> extends AbstractList<E> {
             this.element = element;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(element).append("_")
+                    .append(next.element);
+            return stringBuilder.toString();
+        }
     }
 
     private Node<E> node(int index) {
