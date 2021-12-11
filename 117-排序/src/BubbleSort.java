@@ -4,6 +4,9 @@
  * @created: 2021/11/14
  *
  * 冒泡排序:每次交换都是相邻对比
+ *
+ *
+ * 当前数比前一位数字小就交换
  */
 public class BubbleSort extends Utils {
 
