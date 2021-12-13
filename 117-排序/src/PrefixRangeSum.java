@@ -28,6 +28,7 @@ public class PrefixRangeSum extends Utils {
         prefixSum[0] = array[0];
         for (int i = 1; i < n; i++) {
             prefixSum[i] = prefixSum[i - 1] + array[i];
+
         }
     }
 
@@ -36,6 +37,7 @@ public class PrefixRangeSum extends Utils {
             return prefixSum[r];
         } else {
             return prefixSum[r] - prefixSum[l - 1];
+
         }
     }
 
