@@ -21,7 +21,6 @@ public class InsertSort extends Utils {
         }
 
         int n = array.length;
-
         for (int end = 1; end < n; end++) {
             int curIndex = end;
             while (curIndex - 1 >= 0 && array[curIndex - 1] > array[curIndex]) {
@@ -40,11 +39,9 @@ public class InsertSort extends Utils {
         int n = array.length;
 
         for (int end = 1; end < n; end++) {
-
             //pre : newValue的前一个位置
             for (int pre = end - 1; pre >= 0 && array[pre] > array[pre+1]; pre--) {
                 swap(array, pre, pre + 1);
-
             }
         }
     }

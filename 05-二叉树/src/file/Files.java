@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 
+/**
+ * @author yujiale
+ */
 public class Files {
 	
 	public static void writeToFile(String filePath, Object data) {

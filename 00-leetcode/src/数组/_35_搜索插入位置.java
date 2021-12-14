@@ -68,16 +68,22 @@ public class _35_搜索插入位置 {
 
     public static void main(String[] args) {
         int[] arr = {1, 3, 4, 6};
-        int target = 2;
-        int i = searchInsert(arr, target);
+        int target = 5;
+        int i = searchInsert02(arr, target);
         System.out.println(i);
     }
 
+    /**
+     * 方法一：二分查找
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int searchInsert(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return -1;
         }
-
         int l = 0;
         int r = nums.length - 1;
         while (l <= r) {
@@ -91,5 +97,25 @@ public class _35_搜索插入位置 {
             }
         }
         return l;
+    }
+
+    /**
+     * 方法二：暴力破解
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int searchInsert02(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int n = nums.length;
+        for (int i = 0; i < n ; i++) {
+            if (nums[i] >= target) {
+                return i;
+            }
+        }
+        return n;
     }
 }
