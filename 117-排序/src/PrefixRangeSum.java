@@ -1,3 +1,5 @@
+import utils.Utils;
+
 /**
  * @program: dataStructure
  * @author: yjl
@@ -12,18 +14,18 @@ public class PrefixRangeSum extends Utils {
     public static void main(String[] args) {
 
 
-        int[] array = {10, 6, 9, 12, 45, 67, 14, 32};
+        Integer[] array = {10, 6, 9, 12, 45, 67, 14, 32};
 
         printArray(array);
         PrefixRangeSum01(array);
-        printArray(prefixSum);
+       // printArray(prefixSum);
         int i = rangeSum(2, 5);
         System.out.println(i);
     }
 
 
-    public static void PrefixRangeSum01(int[] array) {
-        int n = array.length;
+    public static void PrefixRangeSum01(Integer[] array) {
+        Integer n = array.length;
         prefixSum = new int[n];
         prefixSum[0] = array[0];
         for (int i = 1; i < n; i++) {

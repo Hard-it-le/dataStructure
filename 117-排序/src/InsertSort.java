@@ -1,3 +1,6 @@
+import utils.Integers;
+import utils.Utils;
+
 /**
  * @program: dataStructure
  * @author: yjl
@@ -9,13 +12,13 @@ public class InsertSort extends Utils {
 
     public static void main(String[] args) {
 
-        int[] array = {10, 6, 9, 12, 45, 67, 14, 32};
+        Integer[] array = {10, 6, 9, 12, 45, 67, 14, 32};
         printArray(array);
         insertSortTest02(array);
         printArray(array);
     }
 
-    public static void insertSortTest01(int[] array) {
+    public static void insertSortTest01(Integer[] array) {
         if (array == null || array.length < 2) {
             return;
         }
@@ -31,7 +34,7 @@ public class InsertSort extends Utils {
     }
 
 
-    public static void insertSortTest02(int[] array) {
+    public static void insertSortTest02(Integer[] array) {
         if (array == null || array.length < 2) {
             return;
         }

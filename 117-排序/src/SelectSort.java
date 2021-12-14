@@ -1,3 +1,5 @@
+import utils.Utils;
+
 /**
  * @program: dataStructure
  * @author: yjl
@@ -12,14 +14,14 @@ public class SelectSort extends Utils {
 
 
     public static void main(String[] args) {
-        int[] array = {6, 1, 3, 6, 7, 82, 4, 6, 28, 9, 5, 10};
+        Integer[] array = {6, 1, 3, 6, 7, 82, 4, 6, 28, 9, 5, 10};
         printArray(array);
         selectSort01(array);
         printArray(array);
 
     }
 
-    public static void selectSort01(int[] array) {
+    public static void selectSort01(Integer[] array) {
         if (array == null || array.length < 2) {
             return;
         }
