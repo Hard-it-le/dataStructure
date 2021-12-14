@@ -1,3 +1,5 @@
+import utils.Integers;
+import utils.Times;
 import utils.Utils;
 
 /**
@@ -14,13 +16,21 @@ public class SelectSort extends Utils {
 
 
     public static void main(String[] args) {
-        Integer[] array = {6, 1, 3, 6, 7, 82, 4, 6, 28, 9, 5, 10};
-        printArray(array);
-        selectSort01(array);
-        printArray(array);
+        Integer[] random = Integers.random(100, 1, 110);
+      Integers.println(random);
+
+        Times.test("selectSort01",()->{
+            selectSort01(random);
+        });
+        Integers.println(random);
 
     }
 
+    /**
+     *
+     * 与数组中最小的进行比较
+     * @param array
+     */
     public static void selectSort01(Integer[] array) {
         if (array == null || array.length < 2) {
             return;
@@ -31,7 +41,6 @@ public class SelectSort extends Utils {
             for (int j = i + 1; j < n; j++) {
                 minValueIndex = array[j] < array[minValueIndex] ? j : minValueIndex;
             }
-
             swap(array, i, minValueIndex);
         }
     }

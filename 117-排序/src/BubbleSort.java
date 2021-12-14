@@ -10,28 +10,28 @@ import utils.Utils;
  * 冒泡排序:每次交换都是相邻对比
  * <p>
  * 当前数比前一位数字小就交换
- *
+ * <p>
  * 冒泡排序最好时间复杂度 o（n）
- *   平均时间复杂度和最坏时间复杂度是o（n^2）
+ * 平均时间复杂度和最坏时间复杂度是o（n^2）
+ * <p>
+ * <p>
+ * 原地算法：不依赖额外的资源或者极少数额外的资源，仅依靠输出来覆盖输入
+ * <p>
+ * 空间复杂度为O（1）都可以认为是原地算法
  */
 public class BubbleSort extends Utils {
 
     public static void main(String[] args) {
 
-
-        Integer[] random1 = Integers.tailAscOrder(10,10000,7000);
+        Integer[] random1 = Integers.tailAscOrder(10, 10000, 7000);
         Integer[] random2 = Integers.copy(random1);
         Integer[] random3 = Integers.copy(random1);
-
-
         Times.test("bubbleSort01", () -> {
             bubbleSort01(random1);
         });
-
         Times.test("bubbleSort02", () -> {
             bubbleSort02(random2);
         });
-
         Times.test("bubbleSort03", () -> {
             bubbleSort03(random3);
         });
@@ -39,7 +39,7 @@ public class BubbleSort extends Utils {
 
     /**
      * 方法一 暴力循环双重for循环
-     *
+     * <p>
      * 最基础的方法
      *
      * @param array

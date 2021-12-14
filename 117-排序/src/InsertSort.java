@@ -13,9 +13,9 @@ public class InsertSort extends Utils {
     public static void main(String[] args) {
 
         Integer[] array = {10, 6, 9, 12, 45, 67, 14, 32};
-        printArray(array);
+        Integers.println(array);
         insertSortTest02(array);
-        printArray(array);
+        Integers.println(array);
     }
 
     public static void insertSortTest01(Integer[] array) {

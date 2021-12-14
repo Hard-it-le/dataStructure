@@ -1,3 +1,4 @@
+import utils.Integers;
 import utils.Utils;
 
 /**
@@ -16,9 +17,9 @@ public class PrefixRangeSum extends Utils {
 
         Integer[] array = {10, 6, 9, 12, 45, 67, 14, 32};
 
-        printArray(array);
+        Integers.println(array);
         PrefixRangeSum01(array);
-       printArray(prefixSum);
+        Integers.println(prefixSum);
         int i = rangeSum(2, 5);
         System.out.println(i);
     }
