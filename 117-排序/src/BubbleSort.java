@@ -10,16 +10,17 @@ import utils.Utils;
  * 冒泡排序:每次交换都是相邻对比
  * <p>
  * 当前数比前一位数字小就交换
+ *
+ * 冒泡排序最好时间复杂度 o（n）
+ *   平均时间复杂度和最坏时间复杂度是o（n^2）
  */
 public class BubbleSort extends Utils {
 
     public static void main(String[] args) {
 
-        Integer[] random1 = Integers.tailAscOrder(10,10000,8000);
 
-
+        Integer[] random1 = Integers.tailAscOrder(10,10000,7000);
         Integer[] random2 = Integers.copy(random1);
-
         Integer[] random3 = Integers.copy(random1);
 
 
@@ -32,12 +33,14 @@ public class BubbleSort extends Utils {
         });
 
         Times.test("bubbleSort03", () -> {
-            bubbleSort03(random2);
+            bubbleSort03(random3);
         });
     }
 
     /**
      * 方法一 暴力循环双重for循环
+     *
+     * 最基础的方法
      *
      * @param array
      */

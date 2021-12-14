@@ -9,7 +9,7 @@ import utils.Utils;
  */
 public class PrefixRangeSum extends Utils {
 
-    private static int[] prefixSum;
+    private static Integer[] prefixSum;
 
     public static void main(String[] args) {
 
@@ -18,15 +18,18 @@ public class PrefixRangeSum extends Utils {
 
         printArray(array);
         PrefixRangeSum01(array);
-       // printArray(prefixSum);
+       printArray(prefixSum);
         int i = rangeSum(2, 5);
         System.out.println(i);
     }
 
 
     public static void PrefixRangeSum01(Integer[] array) {
-        Integer n = array.length;
-        prefixSum = new int[n];
+        int n = array.length;
+        prefixSum = new Integer[n];
+
+
+
         prefixSum[0] = array[0];
         for (int i = 1; i < n; i++) {
             prefixSum[i] = prefixSum[i - 1] + array[i];
