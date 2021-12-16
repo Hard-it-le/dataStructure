@@ -87,7 +87,7 @@ public class _35_搜索插入位置 {
         int l = 0;
         int r = nums.length - 1;
         while (l <= r) {
-            int mid = (l + r) / 2;
+            int mid =  l+ ((r-l)>>1);
             if (nums[mid] == target) {
                 return mid;
             } else if (nums[mid] > target) {

@@ -8,6 +8,14 @@ import java.util.Arrays;
  * @created: 2021/12/14
  */
 public class Integers {
+
+    /**
+     * 定义随机数组
+     * @param count
+     * @param min
+     * @param max
+     * @return
+     */
     public static Integer[] random(int count, int min, int max) {
         if (count <= 0 || min > max) {
             return null;

@@ -53,9 +53,8 @@ public class _704_二分查找 {
         int l = 0;
         int n = nums.length;
         int r = n - 1;
-
         while (l <= r) {
-            int mid = (l + r) / 2;
+            int mid =  l+ ((r-l)>>1);
             if (nums[mid] == target) {
                 return mid;
             } else if (nums[mid] > target) {
@@ -64,7 +63,6 @@ public class _704_二分查找 {
                 l = mid + 1;
             }
         }
-
         return -1;
     }
 }

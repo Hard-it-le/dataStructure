@@ -18,11 +18,15 @@ public class InsertSort extends Utils {
         Integers.println(array);
     }
 
+    /**
+     * 方法一优化
+     *
+     * @param array
+     */
     public static void insertSortTest01(Integer[] array) {
         if (array == null || array.length < 2) {
             return;
         }
-
         int n = array.length;
         for (int end = 1; end < n; end++) {
             int curIndex = end;
@@ -34,16 +38,19 @@ public class InsertSort extends Utils {
     }
 
 
+    /**
+     * 方法二
+     *
+     * @param array
+     */
     public static void insertSortTest02(Integer[] array) {
         if (array == null || array.length < 2) {
             return;
         }
-
         int n = array.length;
-
         for (int end = 1; end < n; end++) {
             //pre : newValue的前一个位置
-            for (int pre = end - 1; pre >= 0 && array[pre] > array[pre+1]; pre--) {
+            for (int pre = end - 1; pre >= 0 && array[pre] > array[pre + 1]; pre--) {
                 swap(array, pre, pre + 1);
             }
         }
