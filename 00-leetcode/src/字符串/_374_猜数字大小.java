@@ -110,19 +110,29 @@ public class _374_猜数字大小 {
 
 
     static class GuessGame {
-
         int guess(int num) {
             int min = 1;
             int max = num;
-            int i = (int) (Math.random() * (max - min) + min);
-            System.out.println(i);
-            if (i == num) {
-                return 0;
-            } else if (i < num) {
-                return -1;
-            } else {
-                return 1;
+            int i = 0;
+            Boolean booleasn = false;
+
+            if (i == 0) {
+                i = (int) (Math.random() * (max - min) + min);
+                booleasn = true;
             }
+
+            int n=2;
+            if (booleasn){
+                if (i == num) {
+                    return 0;
+                } else if (i < num) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+            return n;
+
         }
     }
 
