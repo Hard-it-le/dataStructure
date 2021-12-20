@@ -57,7 +57,7 @@ package 数组;
 public class _33_搜索旋转排序数组 {
 
     public static void main(String[] args) {
-        int[] array = new int[]{4,5,6,7,1,2,3};
+        int[] array = new int[]{4, 5, 6, 7, 1, 2, 3};
         int target = 8;
         _33_搜索旋转排序数组 v = new _33_搜索旋转排序数组();
         int search = v.search(array, target);
@@ -67,6 +67,7 @@ public class _33_搜索旋转排序数组 {
 
     /**
      * 二分查找
+     *
      * @param nums
      * @param target
      * @return
@@ -107,6 +108,29 @@ public class _33_搜索旋转排序数组 {
             }
         }
 
+        return -1;
+    }
+
+    /**
+     * 方法二：循环遍历
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int search01(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int n = nums.length;
+        if (n == 1) {
+            return nums[0] == target ? 0 : -1;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == target) {
+                return i;
+            }
+        }
         return -1;
     }
 }
