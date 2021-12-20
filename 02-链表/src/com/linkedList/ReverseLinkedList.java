@@ -21,9 +21,8 @@ public class ReverseLinkedList {
         int element;
         Node next;
 
-        public Node(int element, Node next) {
-            this.element = element;
-            this.next = next;
+        public Node(int data) {
+            this.element = data;
         }
     }
 
@@ -38,10 +37,8 @@ public class ReverseLinkedList {
         DoubleNode prev;
         DoubleNode next;
 
-        public DoubleNode(int element, DoubleNode prev, DoubleNode next) {
-            this.element = element;
-            this.prev = prev;
-            this.next = next;
+        public DoubleNode(int data) {
+            this.element = data;
         }
     }
 
@@ -56,11 +53,12 @@ public class ReverseLinkedList {
         if (head == null || head.next == null) {
             return head;
         }
-        Node pre = null;
         Node next = null;
+        Node pre = null;
+
         while (head != null) {
             next = head.next;
-            head.next = next;
+            head.next = pre;
             pre = head;
             head = next;
         }
@@ -87,19 +85,6 @@ public class ReverseLinkedList {
             head = next;
         }
         return prev;
-
-    }
-
-    public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.add(1);
-        linkedList.add(2);
-        linkedList.add(3);
-        linkedList.add(4);
-        linkedList.add(5);
-        linkedList.add(6);
-        linkedList.add(7);
-        linkedList.toString();
 
     }
 

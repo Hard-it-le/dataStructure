@@ -5,7 +5,7 @@ package com.linkedList;
  * @author: yjl
  * @created: 2021/12/12
  *
- * 单链表实现队列
+ * 单链表实现单端队列
  */
 public class LinkedListToQueue {
 }

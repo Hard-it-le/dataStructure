@@ -61,4 +61,28 @@ public class _237_删除链表中的节点_1 {
         return head;
 
     }
+
+    public ListNode deleteNode01(ListNode head, int val) {
+
+        while (head != null) {
+            if (head.val != val) {
+                break;
+            }
+            head = head.next;
+        }
+
+        //head来到第一个不需要的位置
+        ListNode prev = head;
+        ListNode cur = head;
+        while (cur != null){
+            if (cur.val == val){
+                prev.next=cur.next;
+            }else {
+                prev=cur;
+            }
+            cur=cur.next;
+        }
+
+        return head;
+    }
 }
