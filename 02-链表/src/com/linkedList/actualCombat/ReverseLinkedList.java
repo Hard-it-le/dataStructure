@@ -1,7 +1,4 @@
-package com.linkedList;
-
-import com.linkedList.doubly.DoublyLinkedList;
-import com.linkedList.single.LinkedList;
+package com.linkedList.actualCombat;
 
 /**
  * @program: dataStructure

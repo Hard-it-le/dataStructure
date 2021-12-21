@@ -1,9 +1,7 @@
-package com.linkedList;
+package com.linkedList.actualCombat;
 
 
 import com.linkedList.single.LinkedList;
-
-import java.util.HashMap;
 
 /**
  * @program: dataStructure
