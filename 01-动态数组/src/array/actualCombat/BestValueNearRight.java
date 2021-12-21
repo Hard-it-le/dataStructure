@@ -7,19 +7,42 @@ import java.util.Arrays;
  * @author: yjl
  * @created: 2021/12/21
  * 有序数组中找到<=num最右的位置
- *
+ * <p>
  * 方法接待：二分查找
  */
 public class BestValueNearRight {
 
 
     public static int nearestIndex(int[] arr, int value) {
-     return 0;
+
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+
+        int l = 0;
+        int r = arr.length - 1;
+        // 记录最右的对号
+        int index = -1;
+
+        while (l <= r) {
+            int mid = l + ((r - l) >> 1);
+
+            if (arr[mid] <= value) {
+                index = mid;
+                l = mid + 1;
+            } else {
+
+                r = mid - 1;
+            }
+        }
+
+        return index;
     }
 
 
     /**
      * 对数器
+     *
      * @param maxSize
      * @param maxValue
      * @return
@@ -34,6 +57,7 @@ public class BestValueNearRight {
 
     /**
      * 对数器
+     *
      * @param arr
      */
     public static void printArray(int[] arr) {
@@ -48,6 +72,7 @@ public class BestValueNearRight {
 
     /**
      * 对数器
+     *
      * @param arr
      * @param value
      * @return

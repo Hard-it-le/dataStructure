@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 有序数组中找到num值
  * <p>
  * 前提条件：有序数组
- *
+ * <p>
  * 方法解答：二分查找
  */
 public class BestValueExist {
@@ -38,13 +38,14 @@ public class BestValueExist {
 
     /**
      * 对数器
+     *
      * @param sortedArr
      * @param num
      * @return
      */
     public static boolean test(int[] sortedArr, int num) {
-        for(int cur : sortedArr) {
-            if(cur == num) {
+        for (int cur : sortedArr) {
+            if (cur == num) {
                 return true;
             }
         }
@@ -54,6 +55,7 @@ public class BestValueExist {
 
     /**
      * 生成随机数
+     *
      * @param maxSize
      * @param maxValue
      * @return
