@@ -58,7 +58,13 @@ public class _278_第一个错误的版本 {
     }
 
     class Solution extends VersionControl {
-        public int firstBadVersion(int n) {
+        /**
+         * 二分查找
+         *
+         * @param n
+         * @return
+         */
+        public int firstBadVersion01(int n) {
             //如果n的版本就是1，那么直接传值给isBadVersion方法，只有同时满足两个方法直接返回1
             if (n == 1 && isBadVersion(n)) {
                 return 1;
@@ -81,6 +87,23 @@ public class _278_第一个错误的版本 {
             // 此时有 left == right，区间缩为一个点，即为答案
             return l;
         }
+
+        /**
+         * 暴力破解
+         *
+         * @param n
+         * @return
+         */
+        public int firstBadVersion02(int n) {
+            for (int i = 1; i <= n; i++) {
+                if (isBadVersion(i)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+
     }
 
 
