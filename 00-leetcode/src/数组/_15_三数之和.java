@@ -50,16 +50,16 @@ import java.util.*;
 public class _15_三数之和 {
 
     public static void main(String[] args) {
-        int[] nums = {-1, 0, 1, 2, -1, -4};
+        int[] nums = {-1, 0,};
         int[] nums1 = {0, 0, 0, 0, 0};
         _15_三数之和 v = new _15_三数之和();
-        List<List<Integer>> lists = v.threeSum03(nums);
+        List<List<Integer>> lists = v.threeSum02(nums);
         System.out.println(lists);
     }
 
 
     /**
-     * 方法1 暴力接发
+     * 方法1 暴力破解
      * 缺点：时间复杂度是O（n^3）耗时非常长，效果很不好
      *
      * @param nums
@@ -67,10 +67,11 @@ public class _15_三数之和 {
      */
     public List<List<Integer>> threeSum01(int[] nums) {
         int n = nums.length;
-        if (n < 3) {
-            return new ArrayList<List<Integer>>();
-        }
         ArrayList<List<Integer>> result = new ArrayList<>();
+        if (n < 3) {
+            return result;
+        }
+
         Arrays.sort(nums);
         //三重for循环,枚举所有的三数组合
         for (int i = 0; i < n - 2; i++) {
@@ -99,9 +100,10 @@ public class _15_三数之和 {
      */
     public List<List<Integer>> threeSum02(int[] nums) {
         int n = nums.length;
-
         List<List<Integer>> result = new ArrayList<>();
-
+        if (n < 3) {
+            return result;
+        }
         // 定义一个hash map
         HashMap<Integer, List<Integer>> map = new HashMap<>();
 
@@ -113,6 +115,7 @@ public class _15_三数之和 {
                 ArrayList<Integer> tempList = new ArrayList<>(map.get(thatNum));
                 tempList.add(nums[i]);
                 result.add(tempList);
+                continue;
             }
 
             // 把当前数对应的两数组合都保存到map里
@@ -134,17 +137,18 @@ public class _15_三数之和 {
 
 
     /**
-     * 方法三：双指针发
+     * 方法三：双指针
      *
      * @param nums
      * @return
      */
     public List<List<Integer>> threeSum03(int[] nums) {
         int n = nums.length;
-        if (n < 3) {
-            return new ArrayList<List<Integer>>();
-        }
         ArrayList<List<Integer>> result = new ArrayList<>();
+        if (n < 3) {
+            return result;
+        }
+
         Arrays.sort(nums);
         //1。遍历每一个元素，作为三个元素中数组中最小的那个（最挨个作为核心）
         for (int i = 0; i < n; i++) {

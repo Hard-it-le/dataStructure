@@ -26,15 +26,9 @@ public class BubbleSort extends Utils {
         Integer[] random1 = Integers.tailAscOrder(10, 10000, 7000);
         Integer[] random2 = Integers.copy(random1);
         Integer[] random3 = Integers.copy(random1);
-        Times.test("bubbleSort01", () -> {
-            bubbleSort01(random1);
-        });
-        Times.test("bubbleSort02", () -> {
-            bubbleSort02(random2);
-        });
-        Times.test("bubbleSort03", () -> {
-            bubbleSort03(random3);
-        });
+        Times.test("bubbleSort01", () -> bubbleSort01(random1));
+        Times.test("bubbleSort02", () -> bubbleSort02(random2));
+        Times.test("bubbleSort03", () -> bubbleSort03(random3));
     }
 
     /**

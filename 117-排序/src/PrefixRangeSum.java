@@ -18,19 +18,16 @@ public class PrefixRangeSum extends Utils {
         Integer[] array = {10, 6, 9, 12, 45, 67, 14, 32};
 
         Integers.println(array);
-        PrefixRangeSum01(array);
+        PrefixRangeSum1(array);
         Integers.println(prefixSum);
         int i = rangeSum(2, 5);
         System.out.println(i);
     }
 
 
-    public static void PrefixRangeSum01(Integer[] array) {
+    public static void PrefixRangeSum1(Integer[] array) {
         int n = array.length;
         prefixSum = new Integer[n];
-
-
-
         prefixSum[0] = array[0];
         for (int i = 1; i < n; i++) {
             prefixSum[i] = prefixSum[i - 1] + array[i];

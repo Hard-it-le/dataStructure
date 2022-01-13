@@ -19,7 +19,7 @@ public class InsertSort extends Utils {
     }
 
     /**
-     * 方法一优化
+     * 方法一
      *
      * @param array
      */

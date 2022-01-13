@@ -79,6 +79,10 @@ public class _287_寻找重复数 {
      * @return
      */
     public int findDuplicate01(int[] nums) {
+        int n = nums.length;
+        if (n == 2) {
+            return nums[0];
+        }
         HashMap<Integer, Integer> countMap = new HashMap<>();
         for (Integer num : nums) {
             //判断当前num是否在key中存在
@@ -100,6 +104,10 @@ public class _287_寻找重复数 {
      * @return
      */
     public int findDuplicate02(int[] nums) {
+        int n = nums.length;
+        if (n == 2) {
+            return nums[0];
+        }
         HashSet<Integer> hashSet = new HashSet<>();
         for (int num : nums) {
             if (hashSet.contains(num)) {
@@ -120,6 +128,10 @@ public class _287_寻找重复数 {
      * @return
      */
     public int findDuplicate03(int[] nums) {
+        int n = nums.length;
+        if (n == 2) {
+            return nums[0];
+        }
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == nums[i + 1]) {
@@ -139,6 +151,10 @@ public class _287_寻找重复数 {
      * @return
      */
     public int findDuplicate04(int[] nums) {
+        int n = nums.length;
+        if (n == 2) {
+            return nums[0];
+        }
         // 定义左右指针
         int left = 1;
         int right = nums.length - 1;
@@ -174,6 +190,10 @@ public class _287_寻找重复数 {
      * @return
      */
     public int findDuplicate05(int[] nums) {
+        int n = nums.length;
+        if (n == 2) {
+            return nums[0];
+        }
         // 定义快慢指针
         int fast = 0, slow = 0;
         // 1. 寻找环内的相遇点
@@ -181,13 +201,13 @@ public class _287_寻找重复数 {
             // 快指针一次走两步，慢指针一次走一步
             slow = nums[slow];
             fast = nums[nums[fast]];
-        }while (fast != slow);
+        } while (fast != slow);
 
         // 循环结束，slow和fast相等，都是相遇点
         // 2. 寻找环的入口点
         // 另外定义两个指针，固定间距
         int before = 0, after = slow;
-        while (before != after){
+        while (before != after) {
             before = nums[before];
             after = nums[after];
         }

@@ -17,6 +17,8 @@ public class MergeSort {
     /**
      * 递归方法的实现
      *
+     * O（nlong^n）
+     *
      * @param array
      */
     public static void mergeSort01(int[] array) {
@@ -24,7 +26,6 @@ public class MergeSort {
             return;
         }
         process(array, 0, array.length - 1);
-
     }
 
     /**
@@ -83,14 +84,17 @@ public class MergeSort {
             return;
         }
         int n = array.length;
+        //步长
         int mergeSize = 1;
         while (mergeSize < n) {
             int l = 0;
             while (l < n) {
+                //l 。。。 m  左组（mergeSize）
                 int mid = l + mergeSize - 1;
                 if (mid >= n) {
                     break;
                 }
+                //l 。。。 m    m+1。。。。 r（mergeSize）
                 int r = Math.min(mid + mergeSize, n - 1);
                 merge(array, l, mid, r);
                 l = r + 1;

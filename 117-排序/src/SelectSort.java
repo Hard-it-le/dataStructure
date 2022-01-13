@@ -17,18 +17,16 @@ public class SelectSort extends Utils {
 
     public static void main(String[] args) {
         Integer[] random = Integers.random(100, 1, 110);
-      Integers.println(random);
+        Integers.println(random);
 
-        Times.test("selectSort01",()->{
-            selectSort01(random);
-        });
+        Times.test("selectSort01", () -> selectSort01(random));
         Integers.println(random);
 
     }
 
     /**
-     *
      * 与数组中最小的进行比较
+     *
      * @param array
      */
     public static void selectSort01(Integer[] array) {
